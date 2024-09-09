@@ -7,7 +7,10 @@ import * as path from 'path';
 
 import express from 'express';
 import session from 'express-session';
+import swaggerUi from 'swagger-ui-express';
 
+import { swaggerSpec } from './config/swagger';
+import authRoutes from './routes/auth/authRoutes';
 import userImpersonationRoutes from './routes/auth/userImpersonationRoutes';
 
 const app = express();
@@ -29,7 +32,9 @@ app.use(
 	})
 );
 
+app.use('/auth', authRoutes);
 app.use('/auth', userImpersonationRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {

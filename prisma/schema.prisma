@@ -10,6 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Session {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshToken String   @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
 model User {
   id                String      @id @default(uuid())
   email             String      @unique
@@ -29,16 +38,6 @@ model User {
   impersonatedBy    User?       @relation("UserImpersonation", fields: [impersonatedById], references: [id])
   impersonatedById  String?
   impersonating     User[]      @relation("UserImpersonation")
-}
-
-model Session {
-  id           String   @id @default(uuid())
-  sessionToken String   @unique
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  expires      DateTime
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
 }
 
 model ApiKey {

@@ -11,6 +11,7 @@ A modern, feature-rich starter template for full-stack web development.
 - **Project Structure**: NX monorepo
 - **Code Concatenation**: Python script for LLM context preparation
 - **Documentation**: Separate folder for project requirements and specifications
+- **Authentication**: JWT-based authentication with refresh tokens
 
 ## Getting Started
 
@@ -32,6 +33,17 @@ A modern, feature-rich starter template for full-stack web development.
    ```
    npm install
    ```
+3. Set up environment variables:
+
+- Copy the .env.example file to .env
+- Update the DATABASE_URL with your PostgreSQL connection string
+- Set JWT_SECRET and JWT_REFRESH_SECRET for authentication
+
+4. Run database migrations:
+
+```
+npx prisma migrate dev
+```
 
 ### Running the Application
 
@@ -43,16 +55,38 @@ Use NX commands to run various parts of the application:
   npx nx serve basic-starter
   ```
 
+- Start the backend development server:
+
+  ```
+  npx nx serve api
+  ```
+
 - Build the project:
 
   ```
   npx nx build basic-starter
   ```
 
+- Build the api
+
+  ```
+  npx nx build api
+  ```
+
 - Run tests:
   ```
   npx nx test basic-starter
   ```
+
+## Authentication
+
+The project now includes JWT-based authentication with the following endpoints:
+
+- POST /auth/register: Register a new user
+- POST /auth/login: Login and receive access and refresh tokens
+- POST /auth/refresh: Refresh the access token using a valid refresh token
+
+For detailed API documentation, refer to the Swagger UI available at `/api-doc`s when running the backend server.
 
 ## Using the Concatenator
 
