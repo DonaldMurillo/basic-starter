@@ -1,17 +1,38 @@
 {
-  "extends": ["../.eslintrc.base.json"],
-  "ignorePatterns": ["!**/*"],
+  "extends": [
+    "../.eslintrc.base.json"
+  ],
+  "ignorePatterns": [
+    "!**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {},
+      "parserOptions": {
+        "project": [
+          "./api/tsconfig.app.json",
+          "./api/tsconfig.spec.json"
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
       "rules": {}
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
       "rules": {}
     }
   ]
