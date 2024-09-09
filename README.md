@@ -87,6 +87,29 @@ This project uses [shadcn/ui](https://ui.shadcn.com/) for UI components. To add 
    import { Button } from '@/components/ui/button';
    ```
 
+## Database Setup
+
+This project uses PostgreSQL with Prisma ORM. Follow these steps to set up your database:
+
+1. Ensure you have PostgreSQL installed and running on your system.
+
+2. Create a new PostgreSQL database for the project.
+
+3. Copy the `.env.example` file to `.env` and update the `DATABASE_URL` with your PostgreSQL connection string:
+
+```
+DATABASE_URL="postgresql://username:password@localhost:5432/your_database_name"
+```
+
+4. Run Prisma Migrate to create the database schema:
+
+```
+npx prisma migrate dev --name dev
+```
+
+5. (Optional) Seed the database with initial data:
+6.
+
 ## Project Documentation
 
 The `/documentation` folder contains important project-related documents:

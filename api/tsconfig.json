@@ -1,16 +1,16 @@
 {
-  "extends": "../tsconfig.json",
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-  ],
-  "compilerOptions": {
-    "esModuleInterop": true
-  }
+	"extends": "../tsconfig.json",
+	"files": ["../types/types.d.ts"],
+	"include": [],
+	"references": [
+		{
+			"path": "./tsconfig.app.json"
+		},
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	],
+	"compilerOptions": {
+		"esModuleInterop": true
+	}
 }
