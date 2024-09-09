@@ -25,6 +25,10 @@ model User {
   password          String
   name              String?
   role              Role        @default(USER)
+  profilePicture    String?
+  bio               String?
+  dateOfBirth       DateTime?
+  phoneNumber       String?
   createdAt         DateTime    @default(now())
   updatedAt         DateTime    @updatedAt
   apiKeys           ApiKey[]

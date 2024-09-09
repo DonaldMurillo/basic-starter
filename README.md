@@ -12,6 +12,7 @@ A modern, feature-rich starter template for full-stack web development.
 - **Code Concatenation**: Python script for LLM context preparation
 - **Documentation**: Separate folder for project requirements and specifications
 - **Authentication**: JWT-based authentication with refresh tokens
+- **User Profiles**: Ability to view and update user profiles
 
 ## Getting Started
 
@@ -87,6 +88,15 @@ The project now includes JWT-based authentication with the following endpoints:
 - POST /auth/refresh: Refresh the access token using a valid refresh token
 
 For detailed API documentation, refer to the Swagger UI available at `/api-doc`s when running the backend server.
+
+## User Profiles
+
+The project now includes user profile functionality with the following endpoints:
+
+- GET /api/profile: Retrieve the authenticated user's profile
+- PUT /api/profile: Update the authenticated user's profile
+
+For detailed API documentation, refer to the Swagger UI available at `/api-docs` when running the backend server.
 
 ## Using the Concatenator
 
